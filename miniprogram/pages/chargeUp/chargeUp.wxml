@@ -1,0 +1,33 @@
+<view class="page-body">
+    <view class="page-section">
+        <!-- 查询区域 -->
+        <view  style="flex-direction:row;display: flex;margin-top: 20rpx;">
+                <picker mode="date" model:value="{{date}}" bindchange="bindDateChange" placeholder="时间日期">
+                    <input type="text" model:value="{{date}}" placeholder="记账日期" style="width: 300rpx;border:gray solid 4rpx; border-radius: 10rpx;margin-left: 50rpx;" disabled="disabled" />
+                </picker>
+        </view>
+        <view class="button-sp-area">
+                    <button size="mini" type="primary" bindtap="queryInfo">查询</button>
+                    <button size="mini" type="default" class="mini-btn" bindtap="cleardata">重置</button>
+                    <button type="default" size="mini" class="mini-btn" bindtap="createNi" >新增</button>
+        </view>
+    </view>
+    <view style="margin-top:30rpx;">
+        <scroll-view scroll-y="true" style="height: 1200rpx;" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}" >
+            <view wx:for="{{dataList}}" wx:for-item="item" wx:key="index" >
+                <!-- 页面主体部分 -->
+                <view style="width: 650rpx;height: 200rpx; background-color:blanchedalmond;margin-left: 50rpx;border-radius: 30rpx;margin-top: 10rpx;" bindtap="detailInfoQuery" data-id="{{item.accountDate}}">
+                        <view style="padding-left:30rpx;padding-top:20rpx">
+                            当日收入汇总(CNY)：{{item.incomeMoneys == null ? 0 : item.incomeMoneys}}
+                        </view>
+                        <view style="padding-left:30rpx;padding-top:20rpx">
+                            当日消费汇总(CNY)：{{item.sumExpands == null ? 0 : item.sumExpands}}
+                        </view>
+                        <view style="padding-left:30rpx;padding-top:20rpx">
+                            记账日期： {{item.accountDate}}
+                        </view>
+                </view>
+            </view>
+        </scroll-view>
+    </view>
+</view>

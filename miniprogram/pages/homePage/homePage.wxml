@@ -1,0 +1,89 @@
+<!--pages/homePage/homePage.wxml-->
+<view class="page-body">
+    <!-- <view class="page-section" style="text-align: center;">
+        记账本
+    </view> -->
+    <view class="page-section">
+        <!-- 查询区域 -->
+        <form >
+            <view class="weui-cell weui-cell_input " style="margin-top: 20rpx;flex-direction:row;display: flex;">
+                <input class="weui-input" placeholder="记账描述" style="width: 300rpx;border:{{color}} solid 4rpx; margin-left: 50rpx;border-radius: 10rpx;" bindfocus="bindFocusChange" bindblur="bindBlurChange" model:value="{{desc}}" />
+                <picker mode="date" model:value="{{date}}" bindchange="bindDateChange" placeholder="时间日期">
+                    <input type="text" model:value="{{date}}" placeholder="记账日期" style="width: 300rpx;border:gray solid 4rpx; margin-left: 50rpx;border-radius: 10rpx;" disabled="disabled" />
+                </picker>
+            </view>
+            <!-- <view class="weui-cell weui-cell_input " style="margin-top: 20rpx;flex-direction:row;display: flex;">
+                <input class="weui-input" placeholder="记账类型" style="width: 300rpx;border:{{color1}} solid 4rpx; margin-left: 50rpx;border-radius: 10rpx;" bindfocus="bindFocusChange" bindblur="bindBlurChange" />
+            </view> -->
+            <view class="weui-cell weui-cell_input " style="margin-top: 20rpx;flex-direction:row;display: flex;">
+                <jztype width="300rpx" marginLeft="50rpx" border="gray solid 4rpx" model:type_desc="{{type_desc}}" model:type_name="{{type_name}}"></jztype>
+                <jz_type width="300rpx" marginLeft="50rpx" border="gray solid 4rpx" model:stype_desc="{{stypeDesc}}" model:type_code="{{typeCode}}"></jz_type>
+            </view>
+            <!-- <view class="weui-cell weui-cell_input " style="margin-top: 20rpx;flex-direction:row;display: flex;">
+               
+            </view> -->
+            <!-- <jztype class="weui-cell weui-cell_input " style="margin-top: 20rpx;flex-direction:row;display: flex;width: 300rpx;"></jztype> -->
+            <view class="button-sp-area ">
+                <button size="mini" type="default" class="mini-btn" bindtap="cleardata">重置</button>
+                <button size="mini" type="primary" bindtap="queryInfo">查询</button>
+            </view>
+        </form>
+    </view>
+    <!-- <view class="page-section" style="flex-direction:row;display: flex;">
+        <view style="padding-left: 40rpx;"> -->
+            <!-- <button type="primary" size="mini" class="mini-btn" bindtap="createNi" >新增</button> -->
+            <!-- <button size="mini" type="default" class="mini-btn" >更新</button>
+            <button size="mini" type="default" class="mini-btn" >删除</button> -->
+       <!-- </view>
+    </view> -->
+    <view style="margin-top: 30rpx;">
+        <!-- 列表区 -->
+        <view style="flex-direction:row;display: flex;width: 800rpx;">
+            <!-- <view class="th-border" style="margin-left: 40rpx;width: 50rpx;background-color:#dde1d7">
+                <checkbox value="{{item.no}}" style="padding-left:10rpx;"/>
+            </view> -->
+            <!-- <view class="th-border" style="margin-left: 10rpx;width: 80rpx;background-color:#dde1d7">序号</view> -->
+            <!-- <view class="th-border" style="background-color: #dde1d7;width: 240rpx;">单号</view> -->
+            <view class="th-border" style="margin-left: 30rpx;background-color: #dde1d7;width: 120rpx;">收/支</view>
+            <view class="th-border" style="background-color: #dde1d7;width: 120rpx;">类型</view>
+            <view class="th-border" style="background-color: #dde1d7;width: 300rpx;">描述</view>
+            <view class="th-border" style="border-right: black solid 1rpx;background-color: #dde1d7">金额</view>
+            <!-- <view class="th-border" style="border-right: black solid 1rpx;background-color: #dde1d7">
+                记账日期
+            </view> -->
+        </view>
+        <scroll-view scroll-y="true" style="height: 1000rpx;" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+        <view wx:for="{{dataList}}" wx:for-item="item" wx:key="index" style="flex-direction:row;display: flex;height: 100rpx;" >
+            <view class="td-borderx" bindtap="editJzInfo" data-id="{{item.billNo}}" style="width:800rpx ;margin-left: 30rpx;">
+                <!-- <view class="td-border" style="margin-left: 40rpx;width: 50rpx;height: 90rpx;">
+                    <checkbox value="{{item.no}}" style="padding-left:10rpx;"/>
+                </view> -->
+                <!-- <view class="td-border" style="margin-left: 10rpx;width: 80rpx;">
+                    {{item.no}}
+                </view> -->
+                <!-- <view class="td-border" style="width: 240rpx;">{{item.billNo != null ? item.billNo : ''}}</view> -->
+                <view class="td-border" style="width: 120rpx;">{{item.accountTypeStr != null ? item.accountTypeStr : ''}}</view>
+                <view class="td-border" style="width: 120rpx;">{{item.stypeDesc != null ? item.stypeDesc : ''}}</view>
+                <view class="td-border" style="width: 300rpx;">{{item.accountDesc != null ? item.accountDesc  : '' }}</view>
+                <view class="td-border" style="border-right: black solid 1rpx;">
+                {{item.accountMoney != null ? item.accountMoney  : ''  }}
+                </view>
+                <!-- <view class="td-border" style="border-right: black solid 1rpx;">
+                    {{item.accountDateStr != null ? item.accountDateStr : ''}}
+                </view> -->
+            </view>
+        </view>
+        </scroll-view>
+        <view style="flex-direction:row;display: flex;padding-left: 30rpx;padding-top: 5rpx;">
+            <view class="up_page" bindtap="up_page">
+            {{current_page > 1 ? '上一页' : ''}}
+            </view>
+            <view class="down_page" bindtap="next_page" >
+            {{current_page < last_page ? '下一页' : '' }}
+            </view>
+            <view class="page_num">
+            第{{current_page}}页  共{{last_page}}页 共 {{count}} 条
+            </view>
+        </view>
+    </view>
+    </view>

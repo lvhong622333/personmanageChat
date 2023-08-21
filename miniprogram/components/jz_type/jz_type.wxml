@@ -1,0 +1,6 @@
+<view>
+    <input type="text" name="typeCode" value="{{type_code}}" hidden="true" />
+    <picker class="list-msg2" bindchange="select_pop_data" value="{{stype_index}}" range="{{stype_desc_arr}}">
+        <input type="text" name="stypeDesc" placeholder="请选择类型" style="border: {{border}} ; border-radius: 10rpx;width: {{width}};margin-left: {{marginLeft}};height: {{height}};margin-top: {{marginTop}};" value="{{stype_desc}}" disabled="disabled" />
+    </picker>
+</view>

@@ -1,0 +1,7 @@
+{
+  "desc": "关于页面是否允许微信构建索引",
+  "rules": [{
+  "action": "disallow",
+  "page": "*"
+  }]
+}

@@ -1,0 +1,42 @@
+/* pages/homePage/homePage.wxss */
+button {
+    margin-top: 20rpx;
+}
+
+.button-sp-area {
+    /* margin: 0 auto; */
+    width: 100%;
+    margin-left: 180rpx;
+}
+
+.mini-btn {
+    margin-right: 20rpx;
+}
+
+.th-border {
+    width: 140rpx;
+    border-left: black solid 1rpx;
+    border-top: black solid 1rpx;
+    border-bottom: black solid 1rpx;
+    /* display: table-cell; */
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    text-align: center;
+}
+
+
+.td-border {
+    width: 140rpx;
+    border-left: black solid 1rpx;
+    /* border-top: black solid 1rpx; */
+    border-bottom: black solid 1rpx;
+    /* display: table-cell; */
+    display: flex;
+    align-items:center;
+    justify-content: center;
+}
+
+.td-borderx {
+    display: flex;
+}

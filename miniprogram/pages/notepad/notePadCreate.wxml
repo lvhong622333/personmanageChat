@@ -1,0 +1,37 @@
+<!--pages/navigate/navigate.wxml-->
+<view class="container">
+    <view class="page-body">
+        <form catchsubmit="formSubmit" bindreset="clearData" >
+            <view  style="margin-top: 20rpx;" wx:if="{{!add_or_update}}">
+                <input type="text" disabled="true"  style="border: 1px solid cadetblue; height: 60rpx;border-radius: 10rpx;background-color: rgb(240, 236, 236);" model:value="{{billno}}"/>
+                <input type="text" name="id" model:value="{{id}}" hidden="true" />
+            </view>
+            <view style="margin-top: 20rpx;"> 
+                <picker mode="date" model:value="{{planDate}}"  >
+                    <view class="picker">
+                        <input type="number" placeholder="请输入计划日期" style="border: 1px solid cadetblue; height: 60rpx;border-radius: 10rpx;" model:value="{{planDate}}"/>
+                    </view>
+                </picker>
+            </view>
+            <view style="margin-top: 20rpx;"> 
+                <picker mode="date" model:value="{{actualDate}}"  >
+                    <view class="picker">
+                        <input type="number" placeholder="请输入实际执行日期" style="border: 1px solid cadetblue; height: 60rpx;border-radius: 10rpx;" model:value="{{actualDate}}"/>
+                    </view>
+                </picker>
+            </view>
+            <view style="margin-top: 20rpx;">
+               <textarea style="height: 200rpx;width: 400rpx;border: 1px solid cadetblue;border-radius: 10rpx;" placeholder="请输入事件详情" model:value="{{noteDesc}}">
+               </textarea>
+            </view>
+            <view class="btn-area" wx:if="{{add_or_update}}">
+                <button style="margin: 30rpx 0" type="primary" formType="submit">保存</button>
+                <button style="margin: 30rpx 0" formType="reset">重置</button>
+            </view>
+            <view class="btn-area" wx:if="{{!add_or_update}}">
+                <button style="margin: 30rpx 0" type="primary" bindtap="updatejzInfo">更新</button>
+                <button style="margin: 30rpx 0" bindtap="deletezjzInfo">删除</button>
+            </view>
+        </form>
+    </view>
+</view>

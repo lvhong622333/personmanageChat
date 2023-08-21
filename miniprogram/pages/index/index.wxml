@@ -1,0 +1,61 @@
+<view class="container global-height" >
+    <view class="page-body global-height"  >
+        <view class="page-section" style="height: 92%;"> 
+        <!-- 中部主内容区 -->
+            <view class="page-section-spacing flex-wrp" style="height: 200rpx;margin-top: 5rpx;flex-direction:row;display: flex;background-color: rgb(250, 249, 249);">
+                <view class="flex-item bottom-navigation global-height" hover-class="bianse" style="width:33.3%">
+                    <navigator url="/pages/chargeUp/chargeUp" hover-class="navigator-hover">
+                        <view style="flex-direction:column;display: flex;">
+                            <view class="iconfont2 icon-jizhangben"></view>
+                            <view >
+                                    记账本
+                            </view>
+                        </view>
+                    </navigator>
+                </view>
+                <view class="flex-item bottom-navigation global-height" hover-class="bianse" style="width:33.3%">
+                    <navigator url="/pages/notepad/notepad" hover-class="navigator-hover">
+                        <view style="flex-direction:column;display: flex;">
+                            <view class="iconfont1 icon-jishiben"></view>
+                            <view >
+                                记事本
+                            </view>
+                        </view>
+                    </navigator>
+                </view>
+                <view class="flex-item bottom-navigation global-height" hover-class="bianse" style="width:33.3%">
+                        <view style="flex-direction:column;display: flex;">
+                            <view class="iconfont icon-ziyuanxhdpi"></view>
+                            <view >
+                                更多
+                            </view>
+                        </view>
+                </view>
+            </view>
+        </view>
+        <view class="page-section" style="height: 8%;">
+        <!-- 底部部导航区 -->
+            <view class="page-section-spacing global-height" >
+                <view class="flex-wrp global-height bottom-navigation-one">
+                    <view class="flex-item bottom-navigation global-height" hover-class="bianse">
+                        <view style="flex-direction:column;display: flex;">
+                            <view class="iconfont3 icon-shouye"></view>
+                            <view >
+                                首页
+                            </view>
+                        </view>
+                    </view>
+                    <!-- <view class="flex-item " style="height: 100rpx;width:34%;background-color: black;">2</view> -->
+                    <view class="flex-item bottom-navigation global-height"  hover-class="bianse">
+                        <view style="flex-direction:column;display: flex;">
+                            <view class="iconfont4 icon-wodeguanzhu"></view>
+                            <view >
+                                我的
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

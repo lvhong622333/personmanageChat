@@ -1,0 +1,34 @@
+<!--pages/navigate/navigate.wxml-->
+<view class="container">
+    <view class="page-body">
+        <form catchsubmit="formSubmit" bindreset="clearData" >
+            <view  style="margin-top: 20rpx;" wx:if="{{!add_or_update}}">
+                <input type="text" disabled="true"  style="border: 1px solid cadetblue; height: 60rpx;border-radius: 10rpx;background-color: rgb(240, 236, 236);" model:value="{{billno}}"/>
+                <input type="text" name="id" model:value="{{id}}" hidden="true" />
+            </view>
+            <jztype height="60rpx" model:type_desc="{{type_desc}}" model:type_name="{{type_name}}" model:marginTop="20rpx" ></jztype>
+            <jz_type height="60rpx" model:stype_desc="{{stype_desc}}" model:type_code="{{type_code}}" model:marginTop="20rpx" ></jz_type>
+            <view style="margin-top: 20rpx;">
+               <input type="text" placeholder="请输入事项描述" style="border: 1px solid cadetblue; height: 60rpx;border-radius: 10rpx;" model:value="{{desc}}" />
+            </view>
+            <view style="margin-top: 20rpx;">
+                <input type="digit" placeholder="请输入记账金额" style="border: 1px solid cadetblue; height: 60rpx;border-radius: 10rpx;" model:value="{{amount}}"/>
+            </view>
+            <view style="margin-top: 20rpx;"> 
+                <picker mode="date" model:value="{{date}}"  >
+                    <view class="picker">
+                        <input type="number" placeholder="请输入记账日期" style="border: 1px solid cadetblue; height: 60rpx;border-radius: 10rpx;" model:value="{{date}}"/>
+                    </view>
+                </picker>
+            </view>
+            <view class="btn-area" wx:if="{{add_or_update}}">
+                <button style="margin: 30rpx 0" type="primary" formType="submit">保存</button>
+                <button style="margin: 30rpx 0" formType="reset">重置</button>
+            </view>
+            <view class="btn-area" wx:if="{{!add_or_update}}">
+                <button style="margin: 30rpx 0" type="primary" bindtap="updatejzInfo">更新</button>
+                <button style="margin: 30rpx 0" bindtap="deletezjzInfo">删除</button>
+            </view>
+        </form>
+    </view>
+</view>

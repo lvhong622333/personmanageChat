@@ -1,0 +1,25 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/logs/logs",
+        "pages/navigate/navigate",
+        "pages/homePage/homePage",
+        "pages/chargeUp/chargeUp",
+        "pages/notepad/notepad",
+        "pages/notepad/notePadCreate"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "生活便捷小工具",
+        "navigationBarTextStyle": "black",
+        "enablePullDownRefresh": true
+    },
+    "style": "v2",
+    "sitemapLocation": "sitemap.json",
+    "usingComponents": {
+        "jztype": "/components/jz/jz",
+        "jz_type": "/components/jz_type/jz_type"
+    },
+    "lazyCodeLoading": "requiredComponents"
+}

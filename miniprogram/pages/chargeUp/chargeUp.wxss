@@ -1,0 +1,6 @@
+/* pages/chargeUp.wxss */
+.button-sp-area {
+    width: 100%;
+    margin-left: 180rpx;
+    margin-top: 20rpx;
+}

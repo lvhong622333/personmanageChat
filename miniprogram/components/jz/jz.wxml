@@ -1,0 +1,7 @@
+
+<view>
+    <input type="text" name="typeName" value="{{type_name}}" hidden="true" />
+    <picker class="list-msg2" bindchange="select_pop_data" value="{{type_index}}" range="{{type_desc_arr}}">
+        <input type="text" name="typeDesc" placeholder="请选择收支类型" style="border: {{border}} ; border-radius: 10rpx;width: {{width}};margin-left: {{marginLeft}};height: {{height}};margin-top: {{marginTop}}" value="{{type_desc}}" disabled="disabled" />
+    </picker>
+</view>

@@ -1,0 +1,32 @@
+<view class="page-body">
+    <view class="page-section">
+        <view  style="flex-direction:row;display: flex;margin-top: 20rpx;">
+            <picker mode="date" model:value="{{planDate}}" bindchange="bindDateChange" placeholder="计划日期">
+                    <input type="text" model:value="{{planDate}}" placeholder="计划日期" style="width: 300rpx;border:gray solid 4rpx; border-radius: 10rpx;margin-left: 50rpx;" disabled="disabled" />
+            </picker>
+
+        </view>
+        <view class="button-sp-area">
+                    <button size="mini" type="primary" bindtap="queryInfo">查询</button>
+                    <button size="mini" type="default" class="mini-btn" bindtap="cleardata">重置</button>
+                    <button type="default" size="mini" class="mini-btn" bindtap="createData" >新增</button>
+        </view>
+    </view>
+    <view style="margin-top:30rpx;">
+        <scroll-view scroll-y="true" style="height: 1200rpx;" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}" >
+            <view wx:for="{{dataList}}" wx:for-item="item" wx:key="index" >
+                <view style="width: 650rpx;height: 220rpx; background-color:blanchedalmond;margin-left: 50rpx;border-radius: 30rpx;margin-top: 10rpx;">
+                    <view style="padding-left:30rpx;padding-top:30rpx">
+                        计划发生日期：{{item.planDateStr != null ? item.planDateStr : '' }}
+                    </view>
+                    <view style="padding-left:30rpx;padding-top:20rpx">
+                        实际发生日期：{{item.actulDateStr != null ? item.actulDateStr : ''}}
+                    </view>
+                    <view style="padding-left:30rpx;padding-top:20rpx">
+                        事件详细描述：{{item.noteDesc}}
+                    </view>
+                </view>
+            </view>
+        </scroll-view>
+    </view>
+</view>

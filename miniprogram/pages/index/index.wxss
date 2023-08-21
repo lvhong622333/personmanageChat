@@ -1,0 +1,32 @@
+/**index.wxss**/
+
+.container {
+    padding: 0;
+}
+ .bianse{
+     background-color: #d9dadb;
+     /* border: 1px solid black; */
+ }
+
+ page{
+     height: 100%;
+ }
+
+ .bottom-navigation {
+    width:50%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
+
+ .global-height{
+    height: 100%;
+ }
+
+ .bottom-navigation-one{
+    flex-direction:row;
+    display: flex;
+    width: 750rpx;
+    text-align: center;
+    background-color: rgb(241,242,243);
+ }
