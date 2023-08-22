@@ -29,8 +29,8 @@
                 <button style="margin: 30rpx 0" formType="reset">重置</button>
             </view>
             <view class="btn-area" wx:if="{{!add_or_update}}">
-                <button style="margin: 30rpx 0" type="primary" bindtap="updatejzInfo">更新</button>
-                <button style="margin: 30rpx 0" bindtap="deletezjzInfo">删除</button>
+                <button style="margin: 30rpx 0" type="primary" bindtap="updateBuNotePad">更新</button>
+                <button style="margin: 30rpx 0" bindtap="deleteNotePadInfo">删除</button>
             </view>
         </form>
     </view>

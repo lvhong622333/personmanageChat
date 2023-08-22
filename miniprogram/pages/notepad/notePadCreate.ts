@@ -19,15 +19,25 @@ Page({
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad() {
-
+    onLoad(options) {
+        this.setData({
+            // title: options.title,
+            billno: options.billNo
+        })
     },
 
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady() {
-
+        var _this = this;
+        var billno = _this.data.billno;
+        if(billno !== null && billno !== undefined && billno.length > 0 ){
+            //根据单据编号，去后台加载数据
+            this.requestUtil(this,URLPARAM.buNotePadDetail,{
+                billno: billno
+            },1,true);
+        }
     },
 
     /**
@@ -71,12 +81,29 @@ Page({
     onShareAppMessage() {
 
     },
+    deleteNotePadInfo(){
+        var params = {
+            id: this.data.id
+        }
+        this.requestUtil(this,URLPARAM.deleteNotePadInfo,params,1,false);
+    },
+    updateBuNotePad(){
+        var params = {
+            planDate:  new Date(this.data.planDate.replace(/-/g,"/")) ,
+            noteDesc: this.data.noteDesc,
+            id: this.data.id
+        };
+        if(this.data.actualDate != '' && this.data.actualDate != null){
+            params.actulDate = new Date(this.data.actualDate.replace(/-/g,"/"))
+        }
+        this.requestUtil(this,URLPARAM.updateBuNotePad,params,1,false);
+    },
     formSubmit: function(){
         var params = {
             planDate:  new Date(this.data.planDate.replace(/-/g,"/")) ,
             noteDesc: this.data.noteDesc,
         };
-        if(this.data.actualDate != ''){
+        if(this.data.actualDate != '' && this.data.actualDate != null){
             params.actulDate = new Date(this.data.actualDate.replace(/-/g,"/"))
         }
         this.requestUtil(this,URLPARAM.buNotePadAdd,params,1,false);
@@ -84,7 +111,14 @@ Page({
       requestUtil(_this: any, url: any, param: any,deltaParam: any,flags: boolean){
         requestUtils.post(url, param).then((res: any) => {
             if(flags){
-               
+                _this.setData({
+                    billno: res.billNo,
+                    id: res.id,
+                    planDate: res.planDateStr,
+                    actualDate:res.actulDateStr,
+                    noteDesc: res.noteDesc,
+                    add_or_update: false,
+                 })
             }else{
                 wx.showToast({
                     title: '成功',

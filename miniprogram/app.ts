@@ -1,8 +1,8 @@
 // app.ts
 App({
   globalData: {
-    contextPath: "http://localhost:8089/"
-    // contextPath: "http://101.43.10.198:8089/"
+    // contextPath: "http://localhost:8089/"
+    contextPath: "http://101.43.10.198:8089/"
   },
  
   onLaunch() {

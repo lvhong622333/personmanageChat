@@ -11,6 +11,9 @@ const URLPARAM = {
     updateBuChargeUp: getApp().globalData.contextPath + '/buChargeUp/updateBuChargeUp', //记账明细更新
     deleteBuChargeUp: getApp().globalData.contextPath + '/buChargeUp/deleteBuChargeUp', //记账明细删除
     queryBuNotePad: getApp().globalData.contextPath + 'buNotePad/queryBuNotePad',
-    buNotePadAdd: getApp().globalData.contextPath +  'buNotePad/buNotePadAdd'
+    buNotePadAdd: getApp().globalData.contextPath +  'buNotePad/buNotePadAdd',
+    buNotePadDetail:  getApp().globalData.contextPath +  'buNotePad/buNotePadDetail',
+    updateBuNotePad: getApp().globalData.contextPath + 'buNotePad/updateBuNotePad',
+    deleteNotePadInfo: getApp().globalData.contextPath + 'buNotePad/deleteNotePadInfo',
 }
 export default URLPARAM;

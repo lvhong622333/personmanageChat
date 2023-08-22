@@ -102,5 +102,9 @@ Page({
         wx.navigateTo({
             url: '/pages/notepad/notePadCreate'
         });
+    },
+    detailInfoQuery(event: any){
+        var billNo =  event.currentTarget.dataset.id;
+        wx.navigateTo({url: '/pages/notepad/notePadCreate?billNo=' + billNo});
     }
 })

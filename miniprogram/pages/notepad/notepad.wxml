@@ -15,7 +15,7 @@
     <view style="margin-top:30rpx;">
         <scroll-view scroll-y="true" style="height: 1200rpx;" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}" >
             <view wx:for="{{dataList}}" wx:for-item="item" wx:key="index" >
-                <view style="width: 650rpx;height: 220rpx; background-color:blanchedalmond;margin-left: 50rpx;border-radius: 30rpx;margin-top: 10rpx;">
+                <view style="width: 650rpx;height: 220rpx; background-color:blanchedalmond;margin-left: 50rpx;border-radius: 30rpx;margin-top: 10rpx;" bindtap="detailInfoQuery" data-id="{{item.billNo}}">
                     <view style="padding-left:30rpx;padding-top:30rpx">
                         计划发生日期：{{item.planDateStr != null ? item.planDateStr : '' }}
                     </view>
